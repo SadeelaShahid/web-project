@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Nutrition System — Sign in</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="page page--auth">
+
+    <div class="auth-shell">
+        <header class="auth-brand">
+            <div class="brand-mark" aria-hidden="true">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="40" height="40" rx="12" fill="currentColor" opacity="0.12"/>
+                    <path d="M20 10v20M14 16h12M14 24h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </div>
+            <p class="eyebrow">Personalized wellness</p>
+            <h1 class="auth-title">Smart Nutrition System</h1>
+            <p class="auth-lead">Plan meals from your profile. Sign in to open your dashboard and generate a weekly nutrition outline.</p>
+        </header>
+
+        <main class="auth-panel" role="main">
+            <div class="card card--auth">
+                <h2 class="card__title">Welcome back</h2>
+                <p class="card__subtitle">Create an account or sign in to continue.</p>
+
+                <form class="form-stack" onsubmit="return false;">
+                    <div class="field">
+                        <label class="field__label" for="username">Username</label>
+                        <input class="field__input" type="text" id="username" name="username" placeholder="e.g. alex.m" autocomplete="username">
+                    </div>
+                    <div class="field">
+                        <label class="field__label" for="password">Password</label>
+                        <input class="field__input" type="password" id="password" name="password" placeholder="••••••••" autocomplete="current-password">
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn btn--secondary" onclick="signup()">Create account</button>
+                        <button type="button" class="btn btn--primary" onclick="login()">Sign in</button>
+                    </div>
+                </form>
+
+                <p class="card__footnote">Demo app: credentials are stored locally in your browser.</p>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard — Smart Nutrition System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="page page--app">
+
+    <div class="app-layout">
+        <aside class="sidebar" aria-label="Main navigation">
+            <div class="sidebar__brand">
+                <span class="brand-mark brand-mark--compact" aria-hidden="true">
+                    <svg width="32" height="32" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="40" height="40" rx="12" fill="currentColor" opacity="0.12"/>
+                        <path d="M20 10v20M14 16h12M14 24h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </span>
+                <div>
+                    <strong class="sidebar__name">Smart Nutrition</strong>
+                    <span class="sidebar__tag">System</span>
+                </div>
+            </div>
+
+            <nav class="sidebar__nav">
+                <a href="dashboard.html" class="nav-link nav-link--active" aria-current="page">Dashboard</a>
+                <a href="index.html" class="nav-link" onclick="signOut()">Sign out</a>
+            </nav>
+
+            <div class="sidebar__footer">
+                <p class="sidebar__hint">Adjust your metrics anytime to refresh your weekly plan.</p>
+            </div>
+        </aside>
+
+        <div class="app-body">
+            <header class="topbar">
+                <div class="topbar__titles">
+                    <p class="eyebrow eyebrow--on-dark">Overview</p>
+                    <h1 class="page-heading">Nutrition planner</h1>
+                    <p class="topbar__lead">Enter your details to compute BMI, age band, and a seven-day meal outline.</p>
+                </div>
+                <div class="topbar__meta">
+                    <span class="pill pill--muted" id="sessionUser">Signed in</span>
+                </div>
+            </header>
+
+            <main class="main-content" role="main">
+                <section class="section">
+                    <div class="grid grid--split">
+                        <div class="card">
+                            <h2 class="card__title">Your profile</h2>
+                            <p class="card__subtitle">Use whole numbers for age, centimetres for height, and kilograms for weight.</p>
+
+                            <form class="form-grid" onsubmit="return false;">
+                                <div class="field">
+                                    <label class="field__label" for="age">Age</label>
+                                    <input class="field__input" type="number" id="age" name="age" placeholder="e.g. 28" min="1" max="120">
+                                </div>
+                                <div class="field">
+                                    <label class="field__label" for="height">Height (cm)</label>
+                                    <input class="field__input" type="number" id="height" name="height" placeholder="e.g. 172" min="50" max="250" step="0.1">
+                                </div>
+                                <div class="field field--full">
+                                    <label class="field__label" for="weight">Weight (kg)</label>
+                                    <input class="field__input" type="number" id="weight" name="weight" placeholder="e.g. 70" min="20" max="300" step="0.1">
+                                </div>
+                                <div class="field field--full form-actions form-actions--inline">
+                                    <button type="button" class="btn btn--primary btn--wide" onclick="generatePlan()">Generate weekly plan</button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="card card--muted">
+                            <h2 class="card__title">How it works</h2>
+                            <ol class="steps">
+                                <li><span class="steps__num">1</span> BMI is calculated from height and weight.</li>
+                                <li><span class="steps__num">2</span> You are grouped by BMI category and age band.</li>
+                                <li><span class="steps__num">3</span> A simple weekly template is suggested (not medical advice).</li>
+                            </ol>
+                            <p class="disclaimer">This tool is for demonstration only. Consult a qualified professional for medical or dietary guidance.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="section section--flush" aria-live="polite" aria-atomic="true">
+                    <div id="result" class="result-host"></div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        (function () {
+            var el = document.getElementById('sessionUser');
+            var user = localStorage.getItem('user');
+            if (el) el.textContent = user || 'Guest';
+        })();
+    </script>
+</body>
+</html>
