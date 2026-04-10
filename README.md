@@ -1,3 +1,3 @@
 | File | Live Demo |
 |------|-----------|
-| [PROJECT](PROJECT/index.html) | [Open Form](https://sadeelashahid.github.io/PROJECT/index.html) |
+| [Project](PROJECT/index.html) | [Open Form](https://sadeelashahid.github.io/web-project/PROJECT/index.html) |
